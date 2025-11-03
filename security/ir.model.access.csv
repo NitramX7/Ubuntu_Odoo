@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_martin_modulo_martin_modulo,martin_modulo.martin_modulo,model_martin_modulo_martin_modulo,base.group_user,1,1,1,1
+access_martin_modulo_martin_modulo_general,martin_modulo.martin_modulo.general,model_martin_modulo_martin_modulo,,0,0,0,0
+access_martin_modulo_martin_modulo_user,martin_modulo.martin_modulo.user,model_martin_modulo_martin_modulo,group_martin_modulo_user,1,1,0,0
+access_martin_modulo_martin_modulo_admin,martin_modulo.martin_modulo.admin,model_martin_modulo_martin_modulo,group_martin_modulo_admin,1,1,1,1
