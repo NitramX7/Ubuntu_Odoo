@@ -22,7 +22,8 @@ Long description of module's purpose
 
     # always loaded
     'data': [
-        'security/ir.model.access.csv',
+        'security/security.xml',          # ← primero se crean los grupos
+        'security/ir.model.access.csv',   # ← luego se asignan permisos
         'views/views.xml',
         'views/templates.xml',
     ],
