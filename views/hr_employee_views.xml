@@ -5,9 +5,9 @@
         <field name="name">modelo.de.ejemplo.list</field>
         <field name="model">modelo.de.ejemplo</field>
         <field name="arch" type="xml">
-            <tree string="Modelo de ejemplo" editable="bottom">
+            <list string="Modelo de ejemplo" editable="bottom">
                 <field name="name" />
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -17,10 +17,16 @@
         <field name="arch" type="xml">
             <form string="Modelo de ejemplo">
                 <sheet>
-                    <group>
-                        <field name="name" />
-                    </group>
+                    <label for="ex_field" class="o_stat_text"> Example</label>
+                    <field name="ex_field" class="o_stat_value" />
+
+
+                    <div class="oe_title">
+                        <field name="ex_field_2" class="mb16" />
+                        <field name="ex_field_3" invisible="1" />
+                    </div>
                 </sheet>
+
             </form>
         </field>
     </record>
