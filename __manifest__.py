@@ -26,6 +26,8 @@ Long description of module's purpose
         'security/ir.model.access.csv',   # ← luego se asignan permisos
         'views/views.xml',
         'views/templates.xml',
+        'views/hr_employee_views.xml',
+        'views/menu.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
