@@ -5,9 +5,9 @@
         <field name="name">modelo.de.ejemplo.list</field>
         <field name="model">modelo.de.ejemplo</field>
         <field name="arch" type="xml">
-            <list string="Modelo de ejemplo" editable="bottom">
+            <tree string="Modelo de ejemplo" editable="bottom">
                 <field name="name" />
-            </list>
+            </tree>
         </field>
     </record>
 
