@@ -2,3 +2,9 @@ id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
 access_martin_modulo_general,martin_modulo.general,model_modelo_de_ejemplo,,1,0,0,0
 access_martin_modulo_user,martin_modulo.user,model_modelo_de_ejemplo,martin_modulo.group_martin_modulo_user,1,1,0,0
 access_martin_modulo_admin,martin_modulo.admin,model_modelo_de_ejemplo,martin_modulo.group_martin_modulo_admin,1,1,1,1
+access_componente_user,Componente user,model_ubuntu_odoo_componente,martin_modulo.group_martin_modulo_user,1,0,0,0
+access_componente_admin,Componente admin,model_ubuntu_odoo_componente,martin_modulo.group_martin_modulo_admin,1,1,1,1
+access_ordenador_user,Ordenador user,model_ubuntu_odoo_ordenador,martin_modulo.group_martin_modulo_user,1,0,0,0
+access_ordenador_admin,Ordenador admin,model_ubuntu_odoo_ordenador,martin_modulo.group_martin_modulo_admin,1,1,1,1
+access_so_tag_user,SO Tag user,model_ubuntu_odoo_so_tag,martin_modulo.group_martin_modulo_user,1,0,0,0
+access_so_tag_admin,SO Tag admin,model_ubuntu_odoo_so_tag,martin_modulo.group_martin_modulo_admin,1,1,1,1
