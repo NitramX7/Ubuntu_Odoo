@@ -29,6 +29,7 @@ Long description of module's purpose
         'views/hr_employee_views.xml',
         'views/componente_views.xml',
         'views/ordenador_views.xml',
+        'views/so_tag_views.xml',
         'views/menu.xml'
     ],
     # only loaded in demonstration mode

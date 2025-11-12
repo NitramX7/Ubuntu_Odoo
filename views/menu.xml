@@ -8,4 +8,5 @@
     <menuitem id="menu_equipos_root" name="Equipos" sequence="50"/>
     <menuitem id="menu_equipos_ordenadores" name="Ordenadores" parent="menu_equipos_root" action="action_ordenadores" sequence="10" groups="martin_modulo.group_martin_modulo_user,martin_modulo.group_martin_modulo_admin"/>
     <menuitem id="menu_equipos_componentes" name="Componentes" parent="menu_equipos_root" action="action_componentes" sequence="20" groups="martin_modulo.group_martin_modulo_user,martin_modulo.group_martin_modulo_admin"/>
+    <menuitem id="menu_equipos_so_tags" name="Sistemas Operativos" parent="menu_equipos_root" action="action_so_tags" sequence="30" groups="martin_modulo.group_martin_modulo_admin"/>
 </odoo>
