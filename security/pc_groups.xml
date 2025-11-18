@@ -1,0 +1,7 @@
+<!-- security/pc_groups.xml -->
+<odoo>
+    <record id="group_pc_manager" model="res.groups">
+        <field name="name">Gestor de PCs</field>
+        <field name="category_id" ref="base.module_category_hidden" />
+    </record>
+</odoo>
