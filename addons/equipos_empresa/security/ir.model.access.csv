@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_componente_user,Componente user,model_equipos_empresa_componente,equipos_empresa.group_equipos_user,1,0,0,0
+access_componente_manager,Componente manager,model_equipos_empresa_componente,equipos_empresa.group_equipos_manager,1,1,1,1
+access_ordenador_user,Ordenador user,model_equipos_empresa_ordenador,equipos_empresa.group_equipos_user,1,0,0,0
+access_ordenador_manager,Ordenador manager,model_equipos_empresa_ordenador,equipos_empresa.group_equipos_manager,1,1,1,1
+access_so_tag_user,SO Tag user,model_equipos_empresa_so_tag,equipos_empresa.group_equipos_user,1,0,0,0
+access_so_tag_manager,SO Tag manager,model_equipos_empresa_so_tag,equipos_empresa.group_equipos_manager,1,1,1,1
