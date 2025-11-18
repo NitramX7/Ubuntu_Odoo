@@ -8,9 +8,3 @@ class Componente(models.Model):
     name = fields.Char(string="Nombre técnico", required=True)
     especificaciones = fields.Text(string="Especificaciones")
     price = fields.Monetary(string="Precio")
-    currency_id = fields.Many2one(
-        "res.currency",
-        string="Moneda",
-        required=True,
-        default=lambda self: self.env.company.currency_id,
-    )
