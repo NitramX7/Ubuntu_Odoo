@@ -3,6 +3,5 @@ access_martin_modulo_general,martin_modulo.general,model_modelo_de_ejemplo,,1,0,
 access_martin_modulo_user,martin_modulo.user,model_modelo_de_ejemplo,martin_modulo.group_martin_modulo_user,1,1,0,0
 access_martin_modulo_admin,martin_modulo.admin,model_modelo_de_ejemplo,martin_modulo.group_martin_modulo_admin,1,1,1,1
 
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_pc_computer_user,pc.computer user,model_pc_computer,base.group_user,1,1,1,1
-access_pc_components_user,pc.components user,model_pc_components,base.group_user,1,1,1,1
+access_pc_ordenador_user,pc.ordenador user,model_ubuntu_odoo_ordenador,base.group_user,1,1,1,1
+access_pc_componente_user,pc.componente user,model_ubuntu_odoo_componente,base.group_user,1,1,1,1
