@@ -1,5 +1,6 @@
 from odoo import api, fields, models
 from odoo.exceptions import ValidationError
+from odoo import fields as odoo_fields
 
 
 class Ordenador(models.Model):
@@ -15,15 +16,26 @@ class Ordenador(models.Model):
         string='Última modificación',
         compute='_compute_ultima_modificacion',
     )
-    precio = fields.Monetary(compute="_calcular_total")
+
+    currency_id = fields.Many2one(
+        'res.currency',
+        string="Moneda",
+        required=True,
+        default=lambda self: self.env.company.currency_id.id,
+    )
+
+    precio = fields.Monetary(
+        string="Precio total",
+        currency_field='currency_id',
+        compute='_compute_total',
+    )
 
     @api.depends("components_ids.precio")
     def _compute_total(self):
         for record in self:
             total = 0.0
             for componente in record.components_ids:
-                total += componente.precio
-
+                total += componente.precio or 0.0
             record.precio = total
 
     @api.depends('write_date', 'create_date')
@@ -31,8 +43,9 @@ class Ordenador(models.Model):
         for record in self:
             record.ultima_modificacion = record.write_date or record.create_date
 
-    @api.constrains('ultima_mod')
+    @api.constrains('ultima_modificacion')
     def _comprobar_fecha(self):
+        ahora = odoo_fields.Datetime.now()
         for record in self:
-            if record:
+            if record.ultima_modificacion and record.ultima_modificacion > ahora:
                 raise ValidationError("La fecha no puede ser futura")
