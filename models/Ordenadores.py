@@ -2,7 +2,7 @@ from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 
-class Ordenador(models.Ordenador):
+class Ordenador(models.Model):
     _name = "ubuntu_odoo.ordenador"
     _description = "Un ordenador con diferentes componentes"
 
