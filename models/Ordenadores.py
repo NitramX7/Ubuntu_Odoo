@@ -37,7 +37,7 @@ class Ordenador(models.Model):
             total = 0.0
             for componente in record.components_ids:
                 total += componente.price or 0.0
-            record.price = total
+            record.precio = total
 
     @api.depends('write_date', 'create_date')
     def _compute_ultima_modificacion(self):
