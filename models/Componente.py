@@ -7,4 +7,13 @@ class Componente(models.Model):
 
     name = fields.Char(string="Nombre técnico", required=True)
     especificaciones = fields.Text(string="Especificaciones")
-    price = fields.Monetary(string="Precio")
+    currency_id = fields.Many2one(
+        'res.currency',
+        string="Currency",
+
+    )
+
+    price = fields.Monetary(
+        string="Price",
+        currency_field='currency_id'
+    )
