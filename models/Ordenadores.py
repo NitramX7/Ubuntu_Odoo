@@ -10,7 +10,8 @@ class Ordenador(models.Model):
     name = fields.Char(string="Nombre técnico", required=True)
     user_id = fields.Many2one('res.users', string='Usuario')
 
-    components_ids = fields.Many2many("pc.components", string="Componentes")
+    components_ids = fields.Many2many(
+        "ubuntu_odoo.componente", string="Componentes")
 
     ultima_modificacion = fields.Datetime(
         string='Última modificación',
@@ -30,13 +31,13 @@ class Ordenador(models.Model):
         compute='_compute_total',
     )
 
-    @api.depends("components_ids.precio")
+    @api.depends("components_ids.price")
     def _compute_total(self):
         for record in self:
             total = 0.0
             for componente in record.components_ids:
-                total += componente.precio or 0.0
-            record.precio = total
+                total += componente.price or 0.0
+            record.price = total
 
     @api.depends('write_date', 'create_date')
     def _compute_ultima_modificacion(self):
