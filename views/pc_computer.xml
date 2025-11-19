@@ -1,8 +1,8 @@
 <odoo>
   <!-- Vista lista -->
   <record id="view_pc_computer_list" model="ir.ui.view">
-    <field name="name">pc.computer.list</field>
-    <field name="model">pc.computer</field>
+    <field name="name">ubuntu_odoo.ordenador.list</field>
+    <field name="model">ubuntu_odoo.ordenador</field>
     <field name="arch" type="xml">
       <list>
         <field name="name" />
@@ -13,8 +13,8 @@
 
   <!-- Vista formulario -->
   <record id="view_pc_computer_form" model="ir.ui.view">
-    <field name="name">pc.computer.form</field>
-    <field name="model">pc.computer</field>
+    <field name="name">ubuntu_odoo.ordenador.form</field>
+    <field name="model">ubuntu_odoo.ordenador</field>
     <field name="arch" type="xml">
       <form>
         <sheet>
@@ -31,7 +31,7 @@
   <!-- Acción -->
   <record id="action_pc_computer" model="ir.actions.act_window">
     <field name="name">Ordenadores</field>
-    <field name="res_model">pc.computer</field>
+    <field name="res_model">ubuntu_odoo.ordenador</field>
     <field name="view_mode">list,form</field>
   </record>
 
