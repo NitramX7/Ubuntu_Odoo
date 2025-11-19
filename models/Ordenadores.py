@@ -34,5 +34,5 @@ class Ordenador(models.Ordenador):
     @api.constrains('ultima_mod')
     def _comprobar_fecha(self):
         for record in self:
-            if TEST:  # Sustituir test por la prueba booleana correspondiente
+            if record:
                 raise ValidationError("La fecha no puede ser futura")
