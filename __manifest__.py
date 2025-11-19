@@ -28,6 +28,7 @@ Long description of module's purpose
         'views/templates.xml',
         'views/hr_employee_views.xml',
         'views/pc_computer.xml',
+        'views/pc_componentes.xml',
         'views/menu.xml'
     ],
     # only loaded in demonstration mode
