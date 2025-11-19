@@ -2,4 +2,4 @@
 
 from . import modeloEjemplo
 from . import Componente
-from . import Ordenador
+from . import Ordenadores
