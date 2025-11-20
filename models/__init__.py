@@ -3,3 +3,4 @@
 from . import modeloEjemplo
 from . import Componente
 from . import Ordenadores
+from . import SistemaOperativo
