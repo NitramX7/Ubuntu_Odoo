@@ -31,6 +31,11 @@ class Ordenador(models.Model):
         compute='_compute_total',
     )
 
+    sistema_operativo_ids = fields.Many2many(
+        comodel_name="ubuntu_odoo.sistema_operativo",
+        string="Sistemas Operativos"
+    )
+
     @api.depends("components_ids.price")
     def _compute_total(self):
         for record in self:

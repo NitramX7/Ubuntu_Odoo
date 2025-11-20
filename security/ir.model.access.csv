@@ -5,3 +5,4 @@ access_martin_modulo_admin,martin_modulo.admin,model_modelo_de_ejemplo,martin_mo
 
 access_pc_ordenador_user,pc.ordenador user,model_ubuntu_odoo_ordenador,base.group_user,1,1,1,1
 access_pc_componente_user,pc.componente user,model_ubuntu_odoo_componente,base.group_user,1,1,1,1
+access_sistema_operativo_user,access_sistema_operativo_user,model_ubuntu_odoo_sistema_operativo,base.group_user,1,1,1,1

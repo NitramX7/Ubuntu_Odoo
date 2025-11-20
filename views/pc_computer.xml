@@ -21,6 +21,7 @@
           <group>
             <field name="name" />
             <field name="components_ids" />
+            <field name="sistema_operativo_ids" widget="many2many_tags" />
             <field name="precio" readonly="1" />
           </group>
         </sheet>
