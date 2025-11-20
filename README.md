@@ -1,54 +1,48 @@
-# Ubuntu_Odoo: Gestión de Equipos
+# Ubuntu_Odoo – Gestión de equipos y componentes
 
-Este módulo añade gestión de ordenadores, componentes, incidencias y etiquetas de sistemas operativos.
+Módulo Odoo para inventariar ordenadores, sus componentes y los sistemas operativos instalados, calculando el coste total por equipo y evitando fechas futuras de modificación.
 
-## Modelos
+## Modelos principales
 
-- ubuntu_odoo.componente
-  - name (Char): Nombre técnico.
-  - especificaciones (Text): Especificaciones del componente.
-  - price (Monetary) y currency_id (Many2one): Precio y moneda.
+### Componentes (`ubuntu_odoo.componente`)
+- `name`: Nombre técnico (requerido).
+- `especificaciones`: Detalles libres.
+- `currency_id`: Moneda del precio.
+- `price`: Importe del componente (Monetary).
 
-- ubuntu_odoo.so_tag
-  - name (Char): Nombre del S.O.
-  - color (Integer): Color para etiquetas.
+### Sistemas Operativos (`ubuntu_odoo.sistema_operativo`)
+- `name`: Nombre del S.O. (requerido).
 
-- ubuntu_odoo.ordenador
-  - numero_equipo (Char, requerido, único): Identificador del equipo.
-  - user_id (Many2one a res.users, requerido): Usuario asignado.
-  - componente_ids (Many2many a ubuntu_odoo.componente): Lista de piezas.
-  - os_tag_ids (Many2many a ubuntu_odoo.so_tag): Sistemas operativos (widget tags con color).
-  - incidencias (Text): Registro de incidencias.
-  - ultima_modificacion (Date, compute+store): Fecha de última modificación (de write_date/create_date). No puede ser futura.
-  - currency_id (Many2one a res.currency): Moneda del ordenador.
-  - precio_total (Monetary, compute+store): Suma de precios de componentes con conversión de moneda.
+### Ordenadores (`ubuntu_odoo.ordenador`)
+- `name`: Nombre técnico del equipo (requerido).
+- `user_id`: Usuario asignado.
+- `components_ids`: Many2many de componentes.
+- `sistema_operativo_ids`: Many2many de sistemas operativos (widget tags).
+- `ultima_modificacion` (compute): Toma `write_date` o `create_date`.
+- `currency_id`: Moneda del equipo (por defecto, la de la compañía).
+- `precio` (compute): Suma de los precios de los componentes.
 
-## Lógica
+## Lógica y validaciones
 
-- _compute_ultima_modificacion: Convierte write_date/create_date a fecha.
-- _comprobar_fecha: Valida que ultima_modificacion no sea futura.
-- _compute_precio_total: Suma precios; convierte divisas si difieren.
+- `_compute_total`: Suma los `price` de `components_ids` y los muestra en `precio`.
+- `_compute_ultima_modificacion`: Refleja la última fecha de cambio o creación.
+- `_comprobar_fecha`: Evita que `ultima_modificacion` quede en el futuro (lanza `ValidationError`).
 
 ## Vistas y menús
 
-- Componentes: vista árbol y formulario (views/componente_views.xml).
-- Ordenadores: vista árbol y formulario con pestañas para Componentes, S.O. e Incidencias (views/ordenador_views.xml).
-- Tags de S.O.: árbol/form con color_picker (views/so_tag_views.xml).
-- Menú raíz "Equipos" con accesos a Ordenadores, Componentes y Sistemas Operativos (views/menu.xml).
+- Componentes: lista y formulario (`views/pc_componentes.xml`).
+- Ordenadores: lista y formulario con componentes y S.O. (`views/pc_computer.xml`).
+- Menú raíz “Equipos” con accesos a Ordenadores y Componentes (`views/menu.xml`).
 
 ## Seguridad
 
-- Grupos existentes del módulo (Usuario/Administrador) se reutilizan.
-- Accesos en security/ir.model.access.csv: Usuario (lectura), Admin (CRUD) para los tres modelos.
+- Grupos de respaldo: `group_martin_modulo_user` y `group_martin_modulo_admin`.
+- Accesos: usuarios internos (`base.group_user`) pueden leer/crear/editar/borrar componentes, ordenadores y sistemas operativos (`security/ir.model.access.csv`).
 
-## Instalación/Actualización
+## Uso rápido
 
-1. Asegura que el módulo está en addons_path.
-2. Actualiza la app: Ajustes → Activar modo desarrollador → Aplicaciones → Actualizar lista.
-3. Instala o actualiza "martinModulo".
-4. Asigna grupos a usuarios si procede.
-
-## Notas
-
-- Si necesitas multiempresa, añade company_id en modelos y usa su moneda.
-- Se puede extender con mantenimiento (historial, costes) si lo requieres.
+1. Instala o actualiza el módulo (`martinModulo`) y activa modo desarrollador.
+2. Crea componentes con su precio y moneda.
+3. Registra sistemas operativos disponibles.
+4. Crea ordenadores, asigna usuario, añade componentes y sistemas operativos.
+5. Revisa el campo “Precio total” calculado automáticamente y la “Última modificación”.
